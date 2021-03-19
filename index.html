@@ -256,7 +256,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="AT89S51单片机的硬件组成"><a href="#AT89S51单片机的硬件组成" class="headerlink" title="AT89S51单片机的硬件组成"></a>AT89S51单片机的硬件组成</h2><p><img src="1.png" alt="AT89S51内部硬件"><br>AT89S51内部各部件通过内部单一的总线连接而成,其基本结构依旧是CPU加外围部件的传统微型计算机结构模式,但CPU对各种外围部件的控制方式是采用 <strong>特殊功能寄存器</strong> (Special Function Resister,SFR)进行集中控制.  </p>
+          <h2 id="AT89S51单片机的硬件组成"><a href="#AT89S51单片机的硬件组成" class="headerlink" title="AT89S51单片机的硬件组成"></a>AT89S51单片机的硬件组成</h2><p><img src="/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/1.png" alt="AT89S51内部硬件"><br>AT89S51内部各部件通过内部单一的总线连接而成,其基本结构依旧是CPU加外围部件的传统微型计算机结构模式,但CPU对各种外围部件的控制方式是采用 <strong>特殊功能寄存器</strong> (Special Function Resister,SFR)进行集中控制.  </p>
 <p><strong>图中各部件介绍</strong>  </p>
 <ol>
 <li>CPU: <strong>8位CPU</strong>  </li>
@@ -269,7 +269,7 @@
 <li>特殊功能寄存器:特殊功能寄存器:AT89S51单片机定义了26个特殊功能寄存器,用来控制、监视和管理各功能部件,通过增加SFR可以扩展增加功能部件,特殊功能寄存器在内存中占用一个字节,分布在RAM区的80H~FFH地址范围中.单片机初始化时,未定义的引脚在调用时只能使用该引脚对应的地址,如存储P1.0~P1.8引脚状态的内存地址是0x90,使用起来不方便,可以使用 sfr 将地址赋值给变量P1,即 sfr P1 = 0x90,之后需要调用引脚就可以使用P1变量而不必使用0x90地址.    </li>
 <li>看门狗定时器(WDT):当单片机由于干扰而是程序陷入死循环或跑飞状态时,看门狗定时器可引起单片机复位,使程序恢复正常运行  </li>
 </ol>
-<h2 id="引脚功能"><a href="#引脚功能" class="headerlink" title="引脚功能"></a>引脚功能</h2><p>目前AT89S51多采用40引脚塑料双列直插封装(DIP),与各种8051单片机引脚兼容,如图<br><img src="2.png" alt="引脚图">  </p>
+<h2 id="引脚功能"><a href="#引脚功能" class="headerlink" title="引脚功能"></a>引脚功能</h2><p>目前AT89S51多采用40引脚塑料双列直插封装(DIP),与各种8051单片机引脚兼容,如图<br><img src="/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/2.png" alt="引脚图">  </p>
 <p>40个引脚按 <strong>功能可以分为三类</strong><br>(1) 电源及时钟引脚:电源(Vcc、Vss)、时钟(XTAL1、XTAL2)<br>(2) 控制引脚: $\overline{\text{PSEN}}$、ALE/$\overline{\text{PROG}}$、$\overline{\text{EA}}$/Vpp、RST<br>(3) 并行I/O口引脚:P0、P1、P2、P3,为4个8位并行I/O口的外部引脚  </p>
 <h3 id="控制引脚"><a href="#控制引脚" class="headerlink" title="控制引脚"></a>控制引脚</h3>
       
@@ -360,17 +360,17 @@
 <p>互联网（Internet，大写I）是一个专用名词，也就是因特网。专指当前全球最大的、开放的、由众多网络相互连接而成的特定互连网，它采用TCP/IP协议族作为通信的规则  </p>
 </blockquote>
 <p>网络把许多计算机连接在一起,而互连网把网络通过路由器连接在一起  </p>
-<p><img src="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/1.png" alt="网络与互连网"></p>
+<p><img src="/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/1.png" alt="网络与互连网"></p>
 <h4 id="互联网基础结构发展的三个阶段"><a href="#互联网基础结构发展的三个阶段" class="headerlink" title="互联网基础结构发展的三个阶段"></a>互联网基础结构发展的三个阶段</h4><p>第二阶段的特点是建成了 <strong>三级结构的互联网</strong>,分为 <strong>主干网、地区网和校园网</strong>  </p>
 <p>第三阶段的特点是逐渐形成多层次 <strong>ISP</strong> 结构的互联网,ISP(Internet Service Provider,网络服务提供商),根据服务范围的大小以及IP地址数目大小分为三个层次,主干ISP、地区ISP和本地ISP  </p>
-<p><img src="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/2.png" alt="各层次ISP工作示意">  </p>
+<p><img src="/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/2.png" alt="各层次ISP工作示意">  </p>
 <p>在这样的架构下,主机A要与不同地区的主机B连接需要以下步骤:<br>主机A $\rightarrow$ 本地ISP $\rightarrow$ 地区ISP $\rightarrow$ 主干ISP $\rightarrow$ 地区ISP $\rightarrow$ 本地ISP $\rightarrow$ 主机B<br>随着网上数据流量的增长,为了更快地转发分组,更有效地利用网络资源,就产生了互联网交换点(IXP,Internet eXchange Point)<br>IXP允许两个网络直接连接并交换分组,而不再需要第三个网络来转发分组  </p>
 <p>由欧洲原子核研究组织开发的 <strong>万维网WWW</strong> (World Wide Web)是互联网在应用层的功能之一,被广泛使用在互联网上  </p>
 <h3 id="互联网的组成"><a href="#互联网的组成" class="headerlink" title="互联网的组成"></a>互联网的组成</h3><p>互联网从工作方式上看可以分为两大块:<br>(1) <strong>边缘部分</strong> 由所有连接在互联网上的主机组成<br>(2) <strong>核心部分</strong> 由大量网络以及连接这些网络的路由器组成,除路由器外不包含计算机  </p>
-<p><img src="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/3.png" alt="互联网的组成">  </p>
+<p><img src="/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/3.png" alt="互联网的组成">  </p>
 <h4 id="端系统通信"><a href="#端系统通信" class="headerlink" title="端系统通信"></a>端系统通信</h4><p>主机A与主机B的通信,实质上是运行在主机A上的一个程序和运行在主机B上的一个应用程序的通信,简称为 <strong>“计算机之间通信”</strong>  </p>
 <h5 id="端系统通信的两种方式"><a href="#端系统通信的两种方式" class="headerlink" title="端系统通信的两种方式"></a>端系统通信的两种方式</h5><h5 id="1-客户-服务器方式-C-S"><a href="#1-客户-服务器方式-C-S" class="headerlink" title="1.客户-服务器方式(C/S)"></a>1.客户-服务器方式(C/S)</h5><p><strong>客户(client)</strong> 和 <strong>服务器(server)</strong> 都是指通信中涉及的两个应用进程<br><strong>客户是服务请求方,服务器是服务提供方</strong><br>服务请求方和服务提供方都要使用网络核心部分所提供的服务  </p>
-<p><img src="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/4.png" alt="c/s工作方式">  </p>
+<p><img src="/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/4.png" alt="c/s工作方式">  </p>
 <p>主要特点:<br>客户程序:  </p>
 <blockquote>
 <ol>
@@ -626,7 +626,7 @@ http://labfile.oss.aliyuncs.com/courses/370/ascii_dora.png
 <p>然后使用vim打开output.txt文件:</p>
 <pre><code>$ vim output.txt
 </code></pre>
-<p>结果如图所示<br><img src="1.png" alt="示例图片1"></p>
+<p>结果如图所示<br><img src="/2021/02/21/Python%E9%A1%B9%E7%9B%AE1-%E5%BD%A9%E8%89%B2%E5%9B%BE%E7%89%87%E8%BD%AC%E7%81%B0%E5%BA%A6%E5%9B%BE/1.png" alt="示例图片1"></p>
 <p><strong>不同环境中的效果可能不同</strong><br><strong>终端显示的字体是不是等宽字体,终端显示的行高和行宽,输入输出的图像宽高等等都会影响显示效果</strong>  </p>
 
       

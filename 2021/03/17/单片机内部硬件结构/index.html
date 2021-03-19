@@ -192,7 +192,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="AT89S51单片机的硬件组成"><a href="#AT89S51单片机的硬件组成" class="headerlink" title="AT89S51单片机的硬件组成"></a>AT89S51单片机的硬件组成</h2><p><img src="1.png" alt="AT89S51内部硬件"><br>AT89S51内部各部件通过内部单一的总线连接而成,其基本结构依旧是CPU加外围部件的传统微型计算机结构模式,但CPU对各种外围部件的控制方式是采用 <strong>特殊功能寄存器</strong> (Special Function Resister,SFR)进行集中控制.  </p>
+        <h2 id="AT89S51单片机的硬件组成"><a href="#AT89S51单片机的硬件组成" class="headerlink" title="AT89S51单片机的硬件组成"></a>AT89S51单片机的硬件组成</h2><p><img src="/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/1.png" alt="AT89S51内部硬件"><br>AT89S51内部各部件通过内部单一的总线连接而成,其基本结构依旧是CPU加外围部件的传统微型计算机结构模式,但CPU对各种外围部件的控制方式是采用 <strong>特殊功能寄存器</strong> (Special Function Resister,SFR)进行集中控制.  </p>
 <p><strong>图中各部件介绍</strong>  </p>
 <ol>
 <li>CPU: <strong>8位CPU</strong>  </li>
@@ -205,7 +205,7 @@
 <li>特殊功能寄存器:特殊功能寄存器:AT89S51单片机定义了26个特殊功能寄存器,用来控制、监视和管理各功能部件,通过增加SFR可以扩展增加功能部件,特殊功能寄存器在内存中占用一个字节,分布在RAM区的80H~FFH地址范围中.单片机初始化时,未定义的引脚在调用时只能使用该引脚对应的地址,如存储P1.0~P1.8引脚状态的内存地址是0x90,使用起来不方便,可以使用 sfr 将地址赋值给变量P1,即 sfr P1 = 0x90,之后需要调用引脚就可以使用P1变量而不必使用0x90地址.    </li>
 <li>看门狗定时器(WDT):当单片机由于干扰而是程序陷入死循环或跑飞状态时,看门狗定时器可引起单片机复位,使程序恢复正常运行  </li>
 </ol>
-<h2 id="引脚功能"><a href="#引脚功能" class="headerlink" title="引脚功能"></a>引脚功能</h2><p>目前AT89S51多采用40引脚塑料双列直插封装(DIP),与各种8051单片机引脚兼容,如图<br><img src="2.png" alt="引脚图">  </p>
+<h2 id="引脚功能"><a href="#引脚功能" class="headerlink" title="引脚功能"></a>引脚功能</h2><p>目前AT89S51多采用40引脚塑料双列直插封装(DIP),与各种8051单片机引脚兼容,如图<br><img src="/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/2.png" alt="引脚图">  </p>
 <p>40个引脚按 <strong>功能可以分为三类</strong><br>(1) 电源及时钟引脚:电源(Vcc、Vss)、时钟(XTAL1、XTAL2)<br>(2) 控制引脚: $\overline{\text{PSEN}}$、ALE/$\overline{\text{PROG}}$、$\overline{\text{EA}}$/Vpp、RST<br>(3) 并行I/O口引脚:P0、P1、P2、P3,为4个8位并行I/O口的外部引脚  </p>
 <h3 id="控制引脚"><a href="#控制引脚" class="headerlink" title="控制引脚"></a>控制引脚</h3>
     </div>
