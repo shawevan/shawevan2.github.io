@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Markdown标题Markdown标题有两种格式   1.使用&#x3D;和-标记一级和二级标题，语法格式如下：我展示的是一级标题&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;我展示的是二级标题-—————– 2.使用#记号使用#号可以表示1-6级标题，一级标题对应一个#，以此类推 Markdown段落Markdown段落没有特殊格式，可以直接编写文字，段落的换行是使用两个以上的空格加上回车   Markdown字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown语法笔记">
+<meta property="og:url" content="http://example.com/2021/02/19/20210219/index.html">
+<meta property="og:site_name" content="Shawn的博客">
+<meta property="og:description" content="Markdown标题Markdown标题有两种格式   1.使用&#x3D;和-标记一级和二级标题，语法格式如下：我展示的是一级标题&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;我展示的是二级标题-—————– 2.使用#记号使用#号可以表示1-6级标题，一级标题对应一个#，以此类推 Markdown段落Markdown段落没有特殊格式，可以直接编写文字，段落的换行是使用两个以上的空格加上回车   Markdown字">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://static.runoob.com/images/runoob-logo.png">
+<meta property="og:image" content="http://static.runoob.com/images/runoob-logo.png">
+<meta property="og:image" content="http://static.runoob.com/images/runoob-logo.png">
+<meta property="article:published_time" content="2021-02-19T07:11:59.000Z">
+<meta property="article:modified_time" content="2021-03-17T12:26:45.272Z">
+<meta property="article:author" content="Shawn Evan">
+<meta property="article:tag" content="Markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://static.runoob.com/images/runoob-logo.png">
+
+<link rel="canonical" href="http://example.com/2021/02/19/20210219/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Markdown语法笔记 | Shawn的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shawn的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/19/20210219/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shawn Evan">
+      <meta itemprop="description" content="当代迷茫大学生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shawn的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Markdown语法笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-19 15:11:59" itemprop="dateCreated datePublished" datetime="2021-02-19T15:11:59+08:00">2021-02-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-17 20:26:45" itemprop="dateModified" datetime="2021-03-17T20:26:45+08:00">2021-03-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Markdown标题"><a href="#Markdown标题" class="headerlink" title="Markdown标题"></a>Markdown标题</h2><p>Markdown标题有两种格式  </p>
+<h3 id="1-使用-和-标记一级和二级标题，语法格式如下："><a href="#1-使用-和-标记一级和二级标题，语法格式如下：" class="headerlink" title="1.使用=和-标记一级和二级标题，语法格式如下："></a>1.使用=和-标记一级和二级标题，语法格式如下：</h3><p>我展示的是一级标题<br>==================<br>我展示的是二级标题<br>-—————–</p>
+<h3 id="2-使用-记号"><a href="#2-使用-记号" class="headerlink" title="2.使用#记号"></a>2.使用#记号</h3><p>使用#号可以表示1-6级标题，一级标题对应一个#，以此类推</p>
+<h2 id="Markdown段落"><a href="#Markdown段落" class="headerlink" title="Markdown段落"></a>Markdown段落</h2><p>Markdown段落没有特殊格式，可以直接编写文字，段落的换行是使用两个以上的空格加上回车  </p>
+<h2 id="Markdown字体"><a href="#Markdown字体" class="headerlink" title="Markdown字体"></a>Markdown字体</h2><p>Markdown可以使用以下几种字体：<br>*斜体文本*  _斜体文本_<br>**粗体文本**  __粗体文本__<br>***粗斜体文本***  ___粗斜体文本___  </p>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p>如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线即可<br>~~BAIDU~~<br>显示效果：<del>BAIDU</del></p>
+<h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h2><p>下划线可以通过HTML的&lt;u&gt;标签实现<br>&lt;u&gt;带下划线文本&lt;/u&gt;<br>显示效果：<u>带下划线文本</u>  </p>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>脚注是对文本的补充说明，格式如下：<br>[^要注明的文本]<br>脚注的用法：<br>创建脚注格式类似于 [^RUNOOB]。<br>[^RUNOOB]: 菜鸟教程<br>演示效果：创建脚注格式类似于 [^RUNOOB]。<br>[^RUNOOB]: 菜鸟教程  </p>
+<h2 id="Markdown列表"><a href="#Markdown列表" class="headerlink" title="Markdown列表"></a>Markdown列表</h2><p>Markdown支持有序列表和无序列表<br>无序列表使用*、+、-作为列表标记，这些标记后要添加一个空格，然后再填写内容<br>* 第一项<br>* 第二项<br>* 第三项  </p>
+<p>+ 第一项<br>+ 第二项<br>+ 第三项  </p>
+<p>- 第一项<br>- 第二项<br>- 第三项  </p>
+<p>显示效果：  </p>
+<ul>
+<li>第一项  </li>
+<li>第二项  </li>
+<li>第三项  </li>
+</ul>
+<p>有序列表使用数字加上.来表示：  </p>
+<p>1. 第一项<br>2. 第二项<br>3. 第三项  </p>
+<p>显示效果：  </p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+<h3 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h3><p>列表嵌套只需在子列表中的选项前面加 <strong>四个空格</strong> 即可<br>1. 第一项：<br>    - 第一项嵌套的第一个元素<br>    - 第一项嵌套的第二个元素<br>2. 第二项：<br>    - 第二项嵌套的第一个元素<br>    - 第二项嵌套的第二个元素  </p>
+<p>显示效果:  </p>
+<ol>
+<li>第一项:  <ul>
+<li>第一项嵌套的第一个元素  </li>
+<li>第一项嵌套的第二个元素  </li>
+</ul>
+</li>
+<li>第二项:  <ul>
+<li>第二项嵌套的第一个元素  </li>
+<li>第二项嵌套的第二个元素  </li>
+</ul>
+</li>
+</ol>
+<h2 id="Markdown区块"><a href="#Markdown区块" class="headerlink" title="Markdown区块"></a>Markdown区块</h2><p>Markdown区块引用是在段落开头使用 <strong>&gt;</strong> 符号,然后后面加一个 <strong>空格</strong> 符号<br>&gt; 区块引用<br>&gt; 菜鸟教程  </p>
+<p>显示效果:  </p>
+<blockquote>
+<p>区块引用<br>菜鸟教程</p>
+</blockquote>
+<p>另外区块是可以嵌套的,一个&gt;是最外层,两个&gt;是第一层嵌套,以此类推:  </p>
+<p>&gt; 最外层<br>&gt;&gt; 第一层嵌套<br>&gt;&gt;&gt; 第二层嵌套  </p>
+<p>显示效果:  </p>
+<blockquote>
+<p>最外层  </p>
+<blockquote>
+<p>第一层嵌套  </p>
+<blockquote>
+<p>第二层嵌套</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="区块中使用列表"><a href="#区块中使用列表" class="headerlink" title="区块中使用列表"></a>区块中使用列表</h3><p>区块中使用列表示例如下:  </p>
+<blockquote>
+<p>&gt; 区块中使用列表<br>&gt; 1. 第一项<br>&gt; - 第二项<br>&gt; + 第三项<br>&gt; * 第四项  </p>
+</blockquote>
+<p>显示效果:  </p>
+<blockquote>
+<p>区块中使用列表  </p>
+<ol>
+<li>第一项  </li>
+</ol>
+<ul>
+<li>第二项  </li>
+</ul>
+<ul>
+<li>第三项  </li>
+</ul>
+<ul>
+<li>第四项  </li>
+</ul>
+</blockquote>
+<h3 id="列表中使用区块"><a href="#列表中使用区块" class="headerlink" title="列表中使用区块"></a>列表中使用区块</h3><p>如果要在列表项目中放进区块,那么就需要在 <strong>&gt;</strong> 前添加四个空格的缩进。  </p>
+<p>示例如下:  </p>
+<blockquote>
+<p>* 第一项<br>　　&gt; 菜鸟教程<br>* 第二项  </p>
+</blockquote>
+<p>显示效果:  </p>
+<ul>
+<li>第一项  <blockquote>
+<p>菜鸟教程<br>学的不仅是技术更是梦想</p>
+</blockquote>
+</li>
+<li>第二项  </li>
+</ul>
+<h2 id="Markdown代码"><a href="#Markdown代码" class="headerlink" title="Markdown代码"></a>Markdown代码</h2><p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来,例如:  </p>
+<blockquote>
+<p>`print()`函数  </p>
+</blockquote>
+<p>显示效果:  </p>
+<p><code>print()</code>函数  </p>
+<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><p>代码区块使用 <strong>四个空格</strong> 或者一个 <strong>制表符(Tab键)</strong>  </p>
+<p>示例:  </p>
+<pre><code>&lt;?php  
+echo &#39;RUNOOB&#39;;  
+function test() &#123;  
+    echo &#39;test&#39;  
+&#125;  
+</code></pre>
+<p>也可以用<code>```</code>包裹一段代码,并指定一种语言(也可以不指定):  </p>
+<pre><code>javascript  
+$(document).ready(function()    &#123;  
+    alert(&#39;RUNOOB&#39;);  
+&#125;);  
+</code></pre>
+<p>显示效果:  </p>
+<pre><code class="javascript">$(document).ready(function()    &#123;  
+    alert(&#39;RUNOOB&#39;);  
+&#125;);  
+</code></pre>
+<h2 id="Markdown链接"><a href="#Markdown链接" class="headerlink" title="Markdown链接"></a>Markdown链接</h2><p>连接使用方法如下:  </p>
+<pre><code>[链接名称](链接地址)  
+或者  
+&lt;链接地址&gt;  
+</code></pre>
+<p>例如:  </p>
+<pre><code>这是一个链接 [shawevans blog](https://shawevan.github.io/2021/02/19/blog/)  
+</code></pre>
+<p>显示效果:  </p>
+<p>这是一个链接 <a target="_blank" rel="noopener" href="https://shawevan.github.io/2021/02/19/blog/">shawevans blog</a>  </p>
+<p>直接使用链接地址:  </p>
+<pre><code>&lt;https://shawevan.github.io/2021/02/19/blog/&gt;  
+</code></pre>
+<p>显示效果:  </p>
+<p><a target="_blank" rel="noopener" href="https://shawevan.github.io/2021/02/19/blog/">https://shawevan.github.io/2021/02/19/blog/</a>  </p>
+<h3 id="高级链接"><a href="#高级链接" class="headerlink" title="高级链接"></a>高级链接</h3><p>可以通过变量来设置一个链接,变量赋值在文档末尾进行:  </p>
+<pre><code>这个链接用1作为网址变量 [Google][1]  
+这个链接用 runoob 作为网址变量 [Runoob] [runoob]  
+然后在文档的末尾为变量赋值  
+(换行)  
+[1]: http://www.google.com/  
+[runoob]: http://www.runoob.com/  
+</code></pre>
+<p>显示结果如下:  </p>
+<p>这个链接用 1 作为网址变量 <a target="_blank" rel="noopener" href="http://www.google.com/">Google</a><br>这个链接用 runoob 作为网址变量 <a target="_blank" rel="noopener" href="http://www.runoob.com/">Runoob</a><br>然后在文档的结尾为变量赋值  </p>
+<h2 id="Markdown图片"><a href="#Markdown图片" class="headerlink" title="Markdown图片"></a>Markdown图片</h2><p>Markdown图片语法格式如下:  </p>
+<pre><code>![alt 属性文本](图片地址)  
+
+![alt 属性文本](图片地址 &quot;可选标题&quot;)  
+</code></pre>
+<ul>
+<li>开头一个感叹号  </li>
+<li>接着一个方括号,里面放上图片的替代文字  </li>
+<li>接着一个括号,里面放上图片地址,最后还可以用引号宝珠并加上选择性的’title’属性的文字.  </li>
+</ul>
+<p>使用示例:  </p>
+<pre><code>![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)  
+
+![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png &quot;RUNOOB&quot;)  
+</code></pre>
+<p>显示效果:  </p>
+<p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标">  </p>
+<p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" title="RUNOOB">  </p>
+<p>也可以像网址那样对图片使用变量:<br>    这个链接用 1 作为网址变量 <a target="_blank" rel="noopener" href="http://www.google.com/">RUNOOB</a>.<br>    然后在文档的结尾为变量赋值（网址）  </p>
+<pre><code>[1]: http://static.runoob.com/images/runoob-logo.png  
+</code></pre>
+<p>显示效果:<br>这个链接用 1 作为网址变量 <a target="_blank" rel="noopener" href="http://www.google.com/">RUNOOB</a>.<br>然后在文档的结尾为变量赋值（网址）  </p>
+<p>Markdown无法指定图片的高度和宽度,有需要可以使用<code>&lt;img&gt;</code>标签  </p>
+<pre><code>&lt;img src=&quot;http://static.runoob.com/images/runoob-logo.png&quot; width=&quot;50%&#39;&gt;  
+</code></pre>
+<p>显示效果:  </p>
+<img src="http://static.runoob.com/images/runoob-logo.png" width="50%">  
+
+<h2 id="Markdown表格"><a href="#Markdown表格" class="headerlink" title="Markdown表格"></a>Markdown表格</h2><p>Markdown制作表格使用<code>|</code>来分隔不同的单元格,使用<code>-</code>来分隔表头和其他行<br>语法格式如下:  </p>
+<pre><code>| 表头 | 表头 |  
+| --- | --- |  
+| 单元格| 单元格|  
+| 单元格| 单元格|  
+</code></pre>
+<p>显示效果:  </p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<h3 id="对齐方式"><a href="#对齐方式" class="headerlink" title="对齐方式"></a>对齐方式</h3><p>我们可以设置表格的对齐方式:  </p>
+<ul>
+<li><code>-:</code>设置内容和标题栏居右对齐  </li>
+<li><code>:-</code>设置内容和标题栏居左对齐  </li>
+<li><code>:-:</code>设置内容和标题栏居中对齐  </li>
+</ul>
+<p>示例:  </p>
+<pre><code>| 左对齐 | 右对齐 | 居中对齐 |  
+| :------| -----: | :-----:|  
+| 单元格  | 单元格 | 单元格 |  
+| 单元格  | 单元格 | 单元格 |  
+</code></pre>
+<p>显示效果:  </p>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐</th>
+<th align="right">右对齐</th>
+<th align="center">居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+</tbody></table>
+<h2 id="Markdown高级技巧"><a href="#Markdown高级技巧" class="headerlink" title="Markdown高级技巧"></a>Markdown高级技巧</h2><h3 id="支持HTML元素"><a href="#支持HTML元素" class="headerlink" title="支持HTML元素"></a>支持HTML元素</h3><p>不在Markdown覆盖范围之内的标签, 都可以直接在文档里面使用HTML撰写<br>目前支持的HTML元素有: <code>&lt;kbd&gt;</code>,<code>&lt;b&gt;</code>,<code>&lt;i&gt;</code>,<code>&lt;em&gt;</code>,<code>&lt;sup&gt;</code>,<code>&lt;br&gt;</code>等,如:  </p>
+<pre><code>使用&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑  
+</code></pre>
+<p>显示效果:  </p>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑  </p>
+<h3 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h3><p>Markdown使用了很多特殊符号来表示特定的意义,如果需要显示特定的符号则需要使用转义字符,Markdown使用反斜杠转义特殊字符:  </p>
+<pre><code>**文本加粗**
+\*\* 正常显示星号 \*\*
+</code></pre>
+<p>输出结果为:  </p>
+<p><strong>文本加粗</strong><br>**正常显示星号**  </p>
+<p>Markdown支持以下这些符号前面加上反斜杠来帮助插入普通符号:  </p>
+<pre><code>\   反斜线
+`   反引号
+*   星号
+_   下划线
+&#123;&#125;  花括号
+[]  方括号
+()  小括号
+#   井字号
++   加号
+-   减号
+.   英文句点
+!   感叹号
+</code></pre>
+<h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><p>当你需要在编辑器中插入数学公式时,可以使用两个美元符<code>$$</code>包裹TeX或LaTeX格式的数学公式来实现,提交后问答和文章页会根据需要加载Mathjax对数学公式进行渲染,如:  </p>
+<pre><code>$$
+\mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;
+\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\
+\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\
+\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp; \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\
+\end&#123;vmatrix&#125;
+$&#123;$tep1&#125;&#123;\style&#123;visibility:hidden&#125;&#123;(x+1)(x+1)&#125;&#125;
+$$
+</code></pre>
+<p>显示效果:  </p>
+<p>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br>\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \<br>\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>${$tep1}{\style{visibility:hidden}{(x+1)(x+1)}}<br>$$  </p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/19/blog/" rel="prev" title="hexo 操作笔记">
+      <i class="fa fa-chevron-left"></i> hexo 操作笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/21/Python%E9%A1%B9%E7%9B%AE1-%E5%BD%A9%E8%89%B2%E5%9B%BE%E7%89%87%E8%BD%AC%E7%81%B0%E5%BA%A6%E5%9B%BE/" rel="next" title="Python项目1:彩色图片转灰度图">
+      Python项目1:彩色图片转灰度图 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E6%A0%87%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Markdown标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8-%E5%92%8C-%E6%A0%87%E8%AE%B0%E4%B8%80%E7%BA%A7%E5%92%8C%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98%EF%BC%8C%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">1.使用&#x3D;和-标记一级和二级标题，语法格式如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8-%E8%AE%B0%E5%8F%B7"><span class="nav-number">1.2.</span> <span class="nav-text">2.使用#记号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E6%AE%B5%E8%90%BD"><span class="nav-number">2.</span> <span class="nav-text">Markdown段落</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E5%AD%97%E4%BD%93"><span class="nav-number">3.</span> <span class="nav-text">Markdown字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="nav-number">4.</span> <span class="nav-text">删除线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E5%88%92%E7%BA%BF"><span class="nav-number">5.</span> <span class="nav-text">下划线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%B3%A8"><span class="nav-number">6.</span> <span class="nav-text">脚注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E5%88%97%E8%A1%A8"><span class="nav-number">7.</span> <span class="nav-text">Markdown列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E5%B5%8C%E5%A5%97"><span class="nav-number">7.1.</span> <span class="nav-text">列表嵌套</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E5%8C%BA%E5%9D%97"><span class="nav-number">8.</span> <span class="nav-text">Markdown区块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8"><span class="nav-number">8.1.</span> <span class="nav-text">区块中使用列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8C%BA%E5%9D%97"><span class="nav-number">8.2.</span> <span class="nav-text">列表中使用区块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E4%BB%A3%E7%A0%81"><span class="nav-number">9.</span> <span class="nav-text">Markdown代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%8C%BA%E5%9D%97"><span class="nav-number">9.1.</span> <span class="nav-text">代码区块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E9%93%BE%E6%8E%A5"><span class="nav-number">10.</span> <span class="nav-text">Markdown链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E9%93%BE%E6%8E%A5"><span class="nav-number">10.1.</span> <span class="nav-text">高级链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E5%9B%BE%E7%89%87"><span class="nav-number">11.</span> <span class="nav-text">Markdown图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E8%A1%A8%E6%A0%BC"><span class="nav-number">12.</span> <span class="nav-text">Markdown表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F"><span class="nav-number">12.1.</span> <span class="nav-text">对齐方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7"><span class="nav-number">13.</span> <span class="nav-text">Markdown高级技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%AF%E6%8C%81HTML%E5%85%83%E7%B4%A0"><span class="nav-number">13.1.</span> <span class="nav-text">支持HTML元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89"><span class="nav-number">13.2.</span> <span class="nav-text">转义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F"><span class="nav-number">13.3.</span> <span class="nav-text">公式</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Shawn Evan</p>
+  <div class="site-description" itemprop="description">当代迷茫大学生</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shawn Evan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

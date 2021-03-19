@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="计算机网络21世纪的重要特征就是 数字化、网络化、信息化 ，是一个以 网络 为核心的 信息时代 。   当今我们比较熟悉的网络有三大类:    电信网络   有线电视网络 计算机网络    电信网络主要提供电话、电报以及传真服务，有线电视网络向用户提供电视节目，计算机网络使用户能在计算机之间传输数据文件。   计算机网络是其中 发展的最快 并且起到 核心作用 的网络。   由于计算机网络能够承担电">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络1:概论">
+<meta property="og:url" content="http://example.com/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/index.html">
+<meta property="og:site_name" content="Shawn的博客">
+<meta property="og:description" content="计算机网络21世纪的重要特征就是 数字化、网络化、信息化 ，是一个以 网络 为核心的 信息时代 。   当今我们比较熟悉的网络有三大类:    电信网络   有线电视网络 计算机网络    电信网络主要提供电话、电报以及传真服务，有线电视网络向用户提供电视节目，计算机网络使用户能在计算机之间传输数据文件。   计算机网络是其中 发展的最快 并且起到 核心作用 的网络。   由于计算机网络能够承担电">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/1.png">
+<meta property="og:image" content="http://example.com/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/2.png">
+<meta property="og:image" content="http://example.com/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/3.png">
+<meta property="og:image" content="http://example.com/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/4.png">
+<meta property="article:published_time" content="2021-03-15T12:00:17.000Z">
+<meta property="article:modified_time" content="2021-03-15T14:52:31.565Z">
+<meta property="article:author" content="Shawn Evan">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/1.png">
+
+<link rel="canonical" href="http://example.com/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>计算机网络1:概论 | Shawn的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shawn的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1-%E6%A6%82%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shawn Evan">
+      <meta itemprop="description" content="当代迷茫大学生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shawn的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络1:概论
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-15 20:00:17 / 修改时间：22:52:31" itemprop="dateCreated datePublished" datetime="2021-03-15T20:00:17+08:00">2021-03-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><p>21世纪的重要特征就是 <strong>数字化、网络化、信息化</strong> ，是一个以 <strong>网络</strong> 为核心的 <strong>信息时代</strong> 。  </p>
+<p>当今我们比较熟悉的网络有三大类:  </p>
+<ul>
+<li>电信网络  </li>
+<li>有线电视网络</li>
+<li>计算机网络  </li>
+</ul>
+<p>电信网络主要提供电话、电报以及传真服务，有线电视网络向用户提供电视节目，计算机网络使用户能在计算机之间传输数据文件。  </p>
+<p>计算机网络是其中 <strong>发展的最快</strong> 并且起到 <strong>核心作用</strong> 的网络。  </p>
+<p>由于计算机网络能够承担电信网络以及有线电视网络的功能,所以有” <strong>三网融合</strong> “的观点,即将三种网络融合成一种网络以提供三种网络的服务。  </p>
+<h3 id="互联网"><a href="#互联网" class="headerlink" title="互联网"></a>互联网</h3><p>互联网,即 <strong>Internet</strong> ,也翻译作因特网,但译作互联网能够体现出Internet的特点,即<u> <strong>互联网是由数量极大的各种计算机网络互连起来的</strong> </u>,采用互联网这个译名能够体现出Internet最主要的特征。  </p>
+<p>互联网具有两个重要的基本特点，连通性和共享  </p>
+<ol>
+<li>连通性: 即使用户之间物理距离很远，也可以较为经济便捷地交换各种信息。  </li>
+<li>资源共享: 这是计算机网络与其他网络的本质区别。  </li>
+</ol>
+<h3 id="互联网概述"><a href="#互联网概述" class="headerlink" title="互联网概述"></a>互联网概述</h3><h4 id="网络的网络"><a href="#网络的网络" class="headerlink" title="网络的网络"></a>网络的网络</h4><p>计算机网络(简称 <strong>网络</strong> )由若干 <strong>节点</strong>(任何计算机、智能设备)以及连接这些节点的 <strong>链路</strong> 组成，网络中的节点可以是计算机、集线器、交换机或路由器等。  </p>
+<p>网络之间还可以使用路由器连接在一起，组成一个更大的网络,这样的网络称为互连网,因此互连网是”网络的网络”<br>习惯上,把与网络连接的计算机称为 <strong>主机</strong>(host)  </p>
+<blockquote>
+<p>互连网（internet，小写i）是一个通用名词，它泛指有多个计算机网络互连而成的计算机网络，这些网络之间的通信规则可以任意选择，不一定非要用TCP/IP协议。  </p>
+</blockquote>
+<blockquote>
+<p>互联网（Internet，大写I）是一个专用名词，也就是因特网。专指当前全球最大的、开放的、由众多网络相互连接而成的特定互连网，它采用TCP/IP协议族作为通信的规则  </p>
+</blockquote>
+<p>网络把许多计算机连接在一起,而互连网把网络通过路由器连接在一起  </p>
+<p><img src="1.png" alt="网络与互连网"></p>
+<h4 id="互联网基础结构发展的三个阶段"><a href="#互联网基础结构发展的三个阶段" class="headerlink" title="互联网基础结构发展的三个阶段"></a>互联网基础结构发展的三个阶段</h4><p>第二阶段的特点是建成了 <strong>三级结构的互联网</strong>,分为 <strong>主干网、地区网和校园网</strong>  </p>
+<p>第三阶段的特点是逐渐形成多层次 <strong>ISP</strong> 结构的互联网,ISP(Internet Service Provider,网络服务提供商),根据服务范围的大小以及IP地址数目大小分为三个层次,主干ISP、地区ISP和本地ISP  </p>
+<p><img src="2.png" alt="各层次ISP工作示意">  </p>
+<p>在这样的架构下,主机A要与不同地区的主机B连接需要以下步骤:<br>主机A $\rightarrow$ 本地ISP $\rightarrow$ 地区ISP $\rightarrow$ 主干ISP $\rightarrow$ 地区ISP $\rightarrow$ 本地ISP $\rightarrow$ 主机B<br>随着网上数据流量的增长,为了更快地转发分组,更有效地利用网络资源,就产生了互联网交换点(IXP,Internet eXchange Point)<br>IXP允许两个网络直接连接并交换分组,而不再需要第三个网络来转发分组  </p>
+<p>由欧洲原子核研究组织开发的 <strong>万维网WWW</strong> (World Wide Web)是互联网在应用层的功能之一,被广泛使用在互联网上  </p>
+<h3 id="互联网的组成"><a href="#互联网的组成" class="headerlink" title="互联网的组成"></a>互联网的组成</h3><p>互联网从工作方式上看可以分为两大块:<br>(1) <strong>边缘部分</strong> 由所有连接在互联网上的主机组成<br>(2) <strong>核心部分</strong> 由大量网络以及连接这些网络的路由器组成,除路由器外不包含计算机  </p>
+<p><img src="3.png" alt="互联网的组成">  </p>
+<h4 id="端系统通信"><a href="#端系统通信" class="headerlink" title="端系统通信"></a>端系统通信</h4><p>主机A与主机B的通信,实质上是运行在主机A上的一个程序和运行在主机B上的一个应用程序的通信,简称为 <strong>“计算机之间通信”</strong>  </p>
+<h5 id="端系统通信的两种方式"><a href="#端系统通信的两种方式" class="headerlink" title="端系统通信的两种方式"></a>端系统通信的两种方式</h5><h5 id="1-客户-服务器方式-C-S"><a href="#1-客户-服务器方式-C-S" class="headerlink" title="1.客户-服务器方式(C/S)"></a>1.客户-服务器方式(C/S)</h5><p><strong>客户(client)</strong> 和 <strong>服务器(server)</strong> 都是指通信中涉及的两个应用进程<br><strong>客户是服务请求方,服务器是服务提供方</strong><br>服务请求方和服务提供方都要使用网络核心部分所提供的服务  </p>
+<p><img src="4.png" alt="c/s工作方式">  </p>
+<p>主要特点:<br>客户程序:  </p>
+<blockquote>
+<ol>
+<li>被用户调用后运行,主动向服务器发起通信, <strong>必须知道服务器程序的地址</strong></li>
+<li>不需要特殊的硬件和复杂的操作系统  </li>
+</ol>
+</blockquote>
+<p>服务器程序:  </p>
+<blockquote>
+<ol>
+<li>是一种专门用来提供某种服务的程序, <strong>可同时处理多个远地或本地客户请求</strong>  </li>
+<li>不断运行, <strong>被动等待并接受来自各地用户的通信请求</strong>  </li>
+<li>一般需要强大的硬件和复杂的操作系统支持  </li>
+</ol>
+</blockquote>
+<p>客户与服务器通信关系建立后,通信是双向的,客户和服务器都可以收发数据</p>
+<h5 id="对等连接方式"><a href="#对等连接方式" class="headerlink" title="对等连接方式"></a>对等连接方式</h5><p>对等连接方式(peer-to-peer,简称P2P)并不区分客户与服务器,双方都可以下载对方存储的文件,可支持上百万个用户同时工作,其应用由面对面快传、视频电话等  </p>
+<p>事实上,P2P从本质上依旧是C/S方式,只是同一台主机既是客户又是服务器  </p>
+<h4 id="互联网核心部分"><a href="#互联网核心部分" class="headerlink" title="互联网核心部分"></a>互联网核心部分</h4><p>在网络核心部分起特殊作用的是 <strong>路由器</strong>(router),它是一种专用计算机(但不叫作主机,因为其一般情况下没有有信息价值的数据),路由器是实现 <strong>分组交换</strong>(packet switching)的关键构件,其任务是 <strong>转发收到的分组</strong> ,这是网络核心部分最重要的功能  </p>
+<p>为了弄清分组交换需要先理解电路交换  </p>
+<h4 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h4><p>电路交换伴随电话线路而诞生,<strong>交换</strong>(switching)就是按照某种方式动态地分配传输线路的资源<br>拨打电话时,拨打与接听方间需要建立一条专用的物理通路,旁人无法插入,直到通话结束将线路资源释放,这种必须通过<br><strong>建立连接</strong>(占用通信资源) $\rightarrow$ <strong>通话</strong>(持续占用通信资源) $\rightarrow$ <strong>释放连接</strong>(归还通信资源)<br>三个步骤的交换方式称为 <strong>电路交换</strong><br>电路交换具有独占性的特征,它必定是面向连接的,这表示它有具体的物理线路</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/25/python%E5%AF%B9%E8%B1%A1/" rel="prev" title="python对象">
+      <i class="fa fa-chevron-left"></i> python对象
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/" rel="next" title="单片机内部硬件结构">
+      单片机内部硬件结构 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="nav-number">1.</span> <span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%92%E8%81%94%E7%BD%91"><span class="nav-number">1.1.</span> <span class="nav-text">互联网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E6%A6%82%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">互联网概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BD%91%E7%BB%9C"><span class="nav-number">1.2.1.</span> <span class="nav-text">网络的网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84%E5%8F%91%E5%B1%95%E7%9A%84%E4%B8%89%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.2.</span> <span class="nav-text">互联网基础结构发展的三个阶段</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-number">1.3.</span> <span class="nav-text">互联网的组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AB%AF%E7%B3%BB%E7%BB%9F%E9%80%9A%E4%BF%A1"><span class="nav-number">1.3.1.</span> <span class="nav-text">端系统通信</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AB%AF%E7%B3%BB%E7%BB%9F%E9%80%9A%E4%BF%A1%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">端系统通信的两种方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%AE%A2%E6%88%B7-%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%B9%E5%BC%8F-C-S"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">1.客户-服务器方式(C&#x2F;S)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E7%AD%89%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">对等连接方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E6%A0%B8%E5%BF%83%E9%83%A8%E5%88%86"><span class="nav-number">1.3.2.</span> <span class="nav-text">互联网核心部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.3.3.</span> <span class="nav-text">电路交换</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Shawn Evan</p>
+  <div class="site-description" itemprop="description">当代迷茫大学生</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shawn Evan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
