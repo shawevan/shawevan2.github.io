@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://example.com/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/2.png">
 <meta property="og:image" content="http://example.com/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/3.png">
 <meta property="article:published_time" content="2021-03-17T10:44:15.000Z">
-<meta property="article:modified_time" content="2021-03-23T15:01:47.918Z">
+<meta property="article:modified_time" content="2021-03-23T15:04:31.325Z">
 <meta property="article:author" content="Shawn Evan">
 <meta property="article:tag" content="单片机原理与接口技术">
 <meta name="twitter:card" content="summary">
@@ -185,7 +185,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-23 23:01:47" itemprop="dateModified" datetime="2021-03-23T23:01:47+08:00">2021-03-23</time>
+                <time title="修改时间：2021-03-23 23:04:31" itemprop="dateModified" datetime="2021-03-23T23:04:31+08:00">2021-03-23</time>
               </span>
 
           
@@ -224,7 +224,61 @@
 <li><p>$\overline{\text{PSEN}}$ (Program Strobe ENable, 第29引脚)<br>内部或外部程序存储器的取指控制,低电平有效.  </p>
 </li>
 </ol>
-<h3 id="并行I-O口引脚"><a href="#并行I-O口引脚" class="headerlink" title="并行I/O口引脚"></a>并行I/O口引脚</h3><p>(1) P0口(第P0.7~P0.0引脚)<br><strong>P0口是漏极开路的双向I/O口,可作为单片机扩展外部RAM及I/O口时的 </strong>低8位地址总线及分时复用口<strong> ,P0也可作为通用I/O口使用, 但需加上拉电阻</strong> , 这时为准双向口, P0可驱动8个LS型TTL负载.<br>(2) P1口(第P1.7~P1.0引脚)<br><strong>P1是准双向I/O口, 内部具有上拉电阻, 可驱动4个LS型TTL负载</strong> , MOSI/P1.5, MISO/P1.6 和 SCK/P1.7 可用于对内部Flash存储器的串行编程和校验, 它们分别是串行数据输入, 串行数据输出和移位脉冲引脚.<br>(3) P2口(第P2.7~P2.0引脚)<br><strong>P2是准双向I/O口, 具有内部上拉电阻, 可驱动4个LS型TTL负载</strong>, 可作为单片机扩展外部RAM及I/O口时的 <strong>高8位地址总线</strong> , 输出高8位地址, P2口也可作为通用I/O口使用.<br>(4) P3口(第P3.7~P3.0引脚)<br><strong>P3是准双向I/O口, 具有内部上拉电阻, 可作为通用I/O使用, 可驱动4个LS型TTL负载</strong>, P3口还可提供第二功能,如表所示.<br>|引脚|第二功能|说明|<br>|:——-:|:——:|:———:|<br>|P3.0|RXD|串行数据输入|<br>|P3.1|TXD|串行数据输出|<br>|P3.2|$\overline{\text{INT0}}$|外部中断0输入|<br>|P3.3|$\overline{\text{INT1}}$|外部中断1输出|<br>|P3.4|T0|定时/计数器T0外部计数输入|<br>|P3.5|T1|定时/计数器T1外部计数输入|<br>|P3.6|$\overline{\text{WR}}$|外部数据存储器的写选通控制|<br>|P3.7|$\overline{\text{RD}}$|外部数据存储器的读选通控制|<br><strong>准双向口作为通用I/O输入口使用时,一定要先向该口写入1</strong>   </p>
+<h3 id="并行I-O口引脚"><a href="#并行I-O口引脚" class="headerlink" title="并行I/O口引脚"></a>并行I/O口引脚</h3><p>(1) P0口(第P0.7~P0.0引脚)<br><strong>P0口是漏极开路的双向I/O口,可作为单片机扩展外部RAM及I/O口时的 </strong>低8位地址总线及分时复用口<strong> ,P0也可作为通用I/O口使用, 但需加上拉电阻</strong> , 这时为准双向口, P0可驱动8个LS型TTL负载.<br>(2) P1口(第P1.7~P1.0引脚)<br><strong>P1是准双向I/O口, 内部具有上拉电阻, 可驱动4个LS型TTL负载</strong> , MOSI/P1.5, MISO/P1.6 和 SCK/P1.7 可用于对内部Flash存储器的串行编程和校验, 它们分别是串行数据输入, 串行数据输出和移位脉冲引脚.<br>(3) P2口(第P2.7~P2.0引脚)<br><strong>P2是准双向I/O口, 具有内部上拉电阻, 可驱动4个LS型TTL负载</strong>, 可作为单片机扩展外部RAM及I/O口时的 <strong>高8位地址总线</strong> , 输出高8位地址, P2口也可作为通用I/O口使用.<br>(4) P3口(第P3.7~P3.0引脚)<br><strong>P3是准双向I/O口, 具有内部上拉电阻, 可作为通用I/O使用, 可驱动4个LS型TTL负载</strong>, P3口还可提供第二功能,如表所示.  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">引脚</th>
+<th style="text-align:center">第二功能</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">P3.0</td>
+<td style="text-align:center">RXD</td>
+<td style="text-align:center">串行数据输入</td>
+</tr>
+<tr>
+<td style="text-align:center">P3.1</td>
+<td style="text-align:center">TXD</td>
+<td style="text-align:center">串行数据输出</td>
+</tr>
+<tr>
+<td style="text-align:center">P3.2</td>
+<td style="text-align:center">$\overline{\text{INT0}}$</td>
+<td style="text-align:center">外部中断0输入</td>
+</tr>
+<tr>
+<td style="text-align:center">P3.3</td>
+<td style="text-align:center">$\overline{\text{INT1}}$</td>
+<td style="text-align:center">外部中断1输出</td>
+</tr>
+<tr>
+<td style="text-align:center">P3.4</td>
+<td style="text-align:center">T0</td>
+<td style="text-align:center">定时/计数器T0外部计数输入</td>
+</tr>
+<tr>
+<td style="text-align:center">P3.5</td>
+<td style="text-align:center">T1</td>
+<td style="text-align:center">定时/计数器T1外部计数输入</td>
+</tr>
+<tr>
+<td style="text-align:center">P3.6</td>
+<td style="text-align:center">$\overline{\text{WR}}$</td>
+<td style="text-align:center">外部数据存储器的写选通控制</td>
+</tr>
+<tr>
+<td style="text-align:center">P3.7</td>
+<td style="text-align:center">$\overline{\text{RD}}$</td>
+<td style="text-align:center">外部数据存储器的读选通控制</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>准双向口作为通用I/O输入口使用时,一定要先向该口写入1</strong>   </p>
 <h2 id="AT89S51单片机的CPU"><a href="#AT89S51单片机的CPU" class="headerlink" title="AT89S51单片机的CPU"></a>AT89S51单片机的CPU</h2><h3 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h3><p>主要用来对操作数进行算数、逻辑和位运算。主要包括逻辑运算单元(ALU)、累加器A、位处理器、 <strong>程序状态字寄存器(PSW)</strong> 及两个暂存器等  </p>
 <h4 id="算术逻辑运算单元-ALU"><a href="#算术逻辑运算单元-ALU" class="headerlink" title="算术逻辑运算单元(ALU)"></a>算术逻辑运算单元(ALU)</h4><p>对8位变量进行 __逻辑与、或、异或，以及循环、求补和清0等操作，还可以进行加、减、乘、除等基本算术运算。ALU还有位操作功能，可对位(bit)变量进行位处理，如置1、清0、求补、测试转移以及逻辑与、或等操作  </p>
 <h4 id="累加器A"><a href="#累加器A" class="headerlink" title="累加器A"></a>累加器A</h4><p>CPU中使用最频繁的 <strong>8位寄存器</strong><br>作用:  </p>
