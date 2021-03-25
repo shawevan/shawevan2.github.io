@@ -30,8 +30,10 @@
 <meta property="og:image" content="http://example.com/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/1.png">
 <meta property="og:image" content="http://example.com/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/2.png">
 <meta property="og:image" content="http://example.com/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/3.png">
+<meta property="og:image" content="http://example.com/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/4.png">
+<meta property="og:image" content="http://example.com/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/5.png">
 <meta property="article:published_time" content="2021-03-17T10:44:15.000Z">
-<meta property="article:modified_time" content="2021-03-23T15:04:31.325Z">
+<meta property="article:modified_time" content="2021-03-25T11:53:37.001Z">
 <meta property="article:author" content="Shawn Evan">
 <meta property="article:tag" content="单片机原理与接口技术">
 <meta name="twitter:card" content="summary">
@@ -185,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-23 23:04:31" itemprop="dateModified" datetime="2021-03-23T23:04:31+08:00">2021-03-23</time>
+                <time title="修改时间：2021-03-25 19:53:37" itemprop="dateModified" datetime="2021-03-25T19:53:37+08:00">2021-03-25</time>
               </span>
 
           
@@ -287,7 +289,7 @@
 <li>CPU中的数据传送大多要经过累加器A,故累加器A有相当于数据的中转站  </li>
 </ol>
 <p>累加器A的进位位Cy(位于程序状态字寄存器PSW中)是特殊的, 因为它同时又是位处理器的位累加器  </p>
-<h4 id="程序状态字寄存器PSW"><a href="#程序状态字寄存器PSW" class="headerlink" title="程序状态字寄存器PSW)"></a>程序状态字寄存器PSW)</h4><p>位于单片机内部的特殊功能寄存器区,字节地址为 D0H, PSW的不同位包含了程序运行状态的不同信息<br><img src="/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/3.png" alt="PSW"></p>
+<h4 id="程序状态字寄存器-PSW"><a href="#程序状态字寄存器-PSW" class="headerlink" title="程序状态字寄存器(PSW)"></a>程序状态字寄存器(PSW)</h4><p>位于单片机内部的特殊功能寄存器区,字节地址为 D0H, PSW的不同位包含了程序运行状态的不同信息<br><img src="/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/3.png" alt="PSW"></p>
 <p>其中各位的功能  </p>
 <ul>
 <li>Cy (PSW.7): <strong>进位标志位</strong> , 也可写为C, 在执行算数运算和逻辑运算指令时, 若有进位或错位, 则Cy=1; 否则Cy=0, 在位处理器中, 它是位累加器  </li>
@@ -335,6 +337,51 @@
 </ul>
 <h3 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h3><p>控制器的主要任务是 <strong>识别指令, 保证单片机各部分能自动协调的工作</strong>  </p>
 <h2 id="AT89S51单片机存储器的结构"><a href="#AT89S51单片机存储器的结构" class="headerlink" title="AT89S51单片机存储器的结构"></a>AT89S51单片机存储器的结构</h2><p>采用哈佛结构, 即程序存储器空间和数据存储器空间是各自独立的  </p>
+<h3 id="程序存储空间"><a href="#程序存储空间" class="headerlink" title="程序存储空间"></a>程序存储空间</h3><p>单片机能够按照一定的次序工作, 是由于程序存储器中存储了程序, 程序存储器可以分为外部和内部两部分.<br>内部存储器: <strong>4KB Flash</strong>, <strong>最多可扩展64KB存储器</strong>  </p>
+<p>程序存储器是 <strong>ROM</strong> ,地址范围为 0000H~0FFFH, AT89S51有 <strong>16位地址总线, 可扩展64KB,地址范围为 0000H~FFFFH</strong> </p>
+<p>读取内部还是外部存储器, 由$\overline{\text{EA}}$引脚电平决定</p>
+<h3 id="数据存储空间"><a href="#数据存储空间" class="headerlink" title="数据存储空间"></a>数据存储空间</h3><p>数据存储器空间分为内部和外部两部分.<br>AT89S51单片机内部有 <strong>128 B数据存储器</strong> , <strong>可扩展最多64KB数据存储器</strong>  </p>
+<h4 id="内部数据存储空间"><a href="#内部数据存储空间" class="headerlink" title="内部数据存储空间"></a>内部数据存储空间</h4><p><img src="/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/4.png" alt="内部RAM结构"><br>内部RAM共128个单元, <strong>字节地址为 00H~7FH </strong> ,之后的 80H~FFH为SFR空间<br>地址 00H~1FH为4个工作寄存器区, 每个工作寄存器区有8B的工作寄存器, 用户可以改变程序状态字寄存器(PSW)中RS0与RS1两位切换选择工作寄存器区<br><strong>地址20H~2FH的16单元128位可位寻址或字节寻址</strong><br>地址30H~7FH为用户RAM区,只能字节寻址    </p>
+<h4 id="外部RAM"><a href="#外部RAM" class="headerlink" title="外部RAM"></a>外部RAM</h4><p>可外扩64KB, 虽然内部RAM与外部RAM前128B地址相同, 但是是两个不同的数据存储空间, <strong>访问时需要不同的指令, 所以不会发生冲突</strong> </p>
+<h3 id="特殊功能寄存器"><a href="#特殊功能寄存器" class="headerlink" title="特殊功能寄存器"></a>特殊功能寄存器</h3><p><img src="/2021/03/17/%E5%8D%95%E7%89%87%E6%9C%BA%E5%86%85%E9%83%A8%E7%A1%AC%E4%BB%B6%E7%BB%93%E6%9E%84/5.png" alt="sfr"><br>观察发现位地址以0或8结尾都可以位寻址  </p>
+<h4 id="堆栈指针-SP"><a href="#堆栈指针-SP" class="headerlink" title="堆栈指针(SP)"></a>堆栈指针(SP)</h4><p>SP的值指出堆栈顶部在内部RAM块中的地址,它可指向内部RAM (00H~7FH)的任何单元<br>AT89S51单片机的堆栈结构属于向上生长型(每压入1字节数据,SP值自动增1), 单片机复位后, SP值为07H<br>堆栈主要是为子程序调用和中断操作而设立的,具体功能有两个: <strong>保护断点</strong> 和 <strong>现场保护</strong>  </p>
+<h4 id="寄存器B"><a href="#寄存器B" class="headerlink" title="寄存器B"></a>寄存器B</h4><p>AT89S51单片机在进行乘除法运算时要使用寄存器B, 在不进行乘除法操作时, 可把它当作普通的寄存器使用  </p>
+<h4 id="AUXR寄存器"><a href="#AUXR寄存器" class="headerlink" title="AUXR寄存器"></a>AUXR寄存器</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>D7</th>
+<th>D6</th>
+<th>D5</th>
+<th>D4</th>
+<th>D3</th>
+<th>D2</th>
+<th>D1</th>
+<th>D0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUXR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>WDIDLE</td>
+<td>DISROT</td>
+<td>-</td>
+<td>-</td>
+<td>DISALE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>DISALE: ALE的禁止/允许位, 该位为0, ALE有效, 发出ALE脉冲信号  </li>
+<li>DISROT: 禁止/允许看门狗计时器(WDT)溢出时的复位输出,该位为0, WDT溢出时允许发出复位信号, 为0时禁止    </li>
+<li>WDIDLE: WDT在空闲模式下的允许/禁止位, 该位为0, 允许WDT空闲模式下计数, 反之禁止  </li>
+</ul>
+<h3 id="位地址空间"><a href="#位地址空间" class="headerlink" title="位地址空间"></a>位地址空间</h3><p>211个可寻址位, <strong>位于内部RAM区(地址20H~2FH,共128位)</strong> 和 <strong>特殊功能寄存器区(内部RAM区字节地址 80H~FFH , 共83位)中</strong></p>
 
     </div>
 
@@ -418,7 +465,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AT89S51%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">AT89S51单片机的硬件组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%84%9A%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">引脚功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%BC%95%E8%84%9A"><span class="nav-number">2.1.</span> <span class="nav-text">控制引脚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8CI-O%E5%8F%A3%E5%BC%95%E8%84%9A"><span class="nav-number">2.2.</span> <span class="nav-text">并行I&#x2F;O口引脚</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AT89S51%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84CPU"><span class="nav-number">3.</span> <span class="nav-text">AT89S51单片机的CPU</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="nav-number">3.1.</span> <span class="nav-text">运算器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E5%8D%95%E5%85%83-ALU"><span class="nav-number">3.1.1.</span> <span class="nav-text">算术逻辑运算单元(ALU)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B4%AF%E5%8A%A0%E5%99%A8A"><span class="nav-number">3.1.2.</span> <span class="nav-text">累加器A</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%8A%B6%E6%80%81%E5%AD%97%E5%AF%84%E5%AD%98%E5%99%A8PSW"><span class="nav-number">3.1.3.</span> <span class="nav-text">程序状态字寄存器PSW)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">控制器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AT89S51%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">AT89S51单片机存储器的结构</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AT89S51%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">AT89S51单片机的硬件组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%84%9A%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">引脚功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%BC%95%E8%84%9A"><span class="nav-number">2.1.</span> <span class="nav-text">控制引脚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8CI-O%E5%8F%A3%E5%BC%95%E8%84%9A"><span class="nav-number">2.2.</span> <span class="nav-text">并行I&#x2F;O口引脚</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AT89S51%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84CPU"><span class="nav-number">3.</span> <span class="nav-text">AT89S51单片机的CPU</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="nav-number">3.1.</span> <span class="nav-text">运算器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E5%8D%95%E5%85%83-ALU"><span class="nav-number">3.1.1.</span> <span class="nav-text">算术逻辑运算单元(ALU)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B4%AF%E5%8A%A0%E5%99%A8A"><span class="nav-number">3.1.2.</span> <span class="nav-text">累加器A</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%8A%B6%E6%80%81%E5%AD%97%E5%AF%84%E5%AD%98%E5%99%A8-PSW"><span class="nav-number">3.1.3.</span> <span class="nav-text">程序状态字寄存器(PSW)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">控制器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AT89S51%E5%8D%95%E7%89%87%E6%9C%BA%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">AT89S51单片机存储器的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4"><span class="nav-number">4.1.</span> <span class="nav-text">程序存储空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4"><span class="nav-number">4.2.</span> <span class="nav-text">数据存储空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4"><span class="nav-number">4.2.1.</span> <span class="nav-text">内部数据存储空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%96%E9%83%A8RAM"><span class="nav-number">4.2.2.</span> <span class="nav-text">外部RAM</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%8A%9F%E8%83%BD%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">4.3.</span> <span class="nav-text">特殊功能寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A0%86%E6%A0%88%E6%8C%87%E9%92%88-SP"><span class="nav-number">4.3.1.</span> <span class="nav-text">堆栈指针(SP)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8B"><span class="nav-number">4.3.2.</span> <span class="nav-text">寄存器B</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AUXR%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">4.3.3.</span> <span class="nav-text">AUXR寄存器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%8D%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4"><span class="nav-number">4.4.</span> <span class="nav-text">位地址空间</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
