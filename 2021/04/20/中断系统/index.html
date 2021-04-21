@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://example.com/2021/04/20/%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F/1.png">
 <meta property="og:image" content="http://example.com/2021/04/20/%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F/2.png">
 <meta property="article:published_time" content="2021-04-20T09:17:25.000Z">
-<meta property="article:modified_time" content="2021-04-21T09:13:42.789Z">
+<meta property="article:modified_time" content="2021-04-21T09:15:24.542Z">
 <meta property="article:author" content="Shawn Evan">
 <meta property="article:tag" content="单片机原理与接口技术">
 <meta name="twitter:card" content="summary">
@@ -184,7 +184,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-21 17:13:42" itemprop="dateModified" datetime="2021-04-21T17:13:42+08:00">2021-04-21</time>
+                <time title="修改时间：2021-04-21 17:15:24" itemprop="dateModified" datetime="2021-04-21T17:15:24+08:00">2021-04-21</time>
               </span>
 
           
@@ -261,7 +261,48 @@
 <li>IT0: <strong>选择外部中断0为跳沿触发还是电平触发</strong> ,与IT1类似  </li>
 </ul>
 <p>当单片机复位后,TCON被清0,5个中断源的中断请求标志位均为0<br>TR1与TR0和中断系统无关  </p>
-<h4 id="SCON寄存器"><a href="#SCON寄存器" class="headerlink" title="SCON寄存器"></a>SCON寄存器</h4><p>SCON是 <strong>串行口控制寄存器</strong>字节地址为98H,可位寻址,SCON的低二位锁存串行口的发送中断和接收中断请求标志位为TI和RI<br>||D7|D6|D5|D4|D3|D2|D1|D0|<br>|:-:|:—:|:—:|:—:|:—:|:—:|:—:|:—:|:—:|<br>|SCON 98H|-|-|-|-|-|-|TI|RI|<br>|位地址|-|-|-|-|-|-|99H|98H|  </p>
+<h4 id="SCON寄存器"><a href="#SCON寄存器" class="headerlink" title="SCON寄存器"></a>SCON寄存器</h4><p>SCON是 <strong>串行口控制寄存器</strong>字节地址为98H,可位寻址,SCON的低二位锁存串行口的发送中断和接收中断请求标志位为TI和RI  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">D7</th>
+<th style="text-align:center">D6</th>
+<th style="text-align:center">D5</th>
+<th style="text-align:center">D4</th>
+<th style="text-align:center">D3</th>
+<th style="text-align:center">D2</th>
+<th style="text-align:center">D1</th>
+<th style="text-align:center">D0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">SCON 98H</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">TI</td>
+<td style="text-align:center">RI</td>
+</tr>
+<tr>
+<td style="text-align:center">位地址</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">99H</td>
+<td style="text-align:center">98H</td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul>
 <li>TI: <strong>串行口发送中断请求标志位</strong> ,当CPU将1字节的数据写入串行口的发送SBUF(串行数据缓冲器)时,就启动1帧串行数据的发送,每发送完1帧串行数据后,硬件自动把TI置1,CPU在响应串行口发送中断时,并不对TI清0,必须在中断服务程序中用指令对TI清0  </li>
 <li>RI: <strong>串行口接收中断请求标志位</strong> ,在串行口接受完一帧的数据后,硬件自动使RI置1,CPU在相应串行口接收中断时,并不能对RI清0,必须在中断服务程序中使用指令对RI清0</li>
@@ -379,7 +420,39 @@
 <li>无相同优先级或更高优先级的中断正在被服务  </li>
 </ol>
 <p>中断响应的过程是硬件自动生成一条长调用命令”LCALL addr16”,addr16是中断源的中断入口地址  </p>
-<p>中断入口地址表:<br>|中断源|中断入口地址|<br>|:—:|:—:|<br>|外部中断0|0003H|<br>|定时/计数器T0|00BH|<br>|外部中断1|0013H|<br>|定时/计数器T1|001BH|<br>|串行口|0023H|  </p>
+<p>中断入口地址表: </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">中断源</th>
+<th style="text-align:center">中断入口地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">外部中断0</td>
+<td style="text-align:center">0003H</td>
+</tr>
+<tr>
+<td style="text-align:center">定时/计数器T0</td>
+<td style="text-align:center">00BH</td>
+</tr>
+<tr>
+<td style="text-align:center">外部中断1</td>
+<td style="text-align:center">0013H</td>
+</tr>
+<tr>
+<td style="text-align:center">定时/计数器T1</td>
+<td style="text-align:center">001BH</td>
+</tr>
+<tr>
+<td style="text-align:center">串行口</td>
+<td style="text-align:center">0023H</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>对于外部中断1的响应,硬件自动生成的长调用命令为  </p>
 <blockquote>
 <p>LCALL 0013H  </p>
