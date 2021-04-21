@@ -170,10 +170,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-20 17:17:25 / 修改时间：18:39:29" itemprop="dateCreated datePublished" datetime="2021-04-20T17:17:25+08:00">2021-04-20</time>
+              <time title="创建时间：2021-04-20 17:17:25" itemprop="dateCreated datePublished" datetime="2021-04-20T17:17:25+08:00">2021-04-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-21 17:04:01" itemprop="dateModified" datetime="2021-04-21T17:04:01+08:00">2021-04-21</time>
+              </span>
 
           
 
@@ -213,6 +219,125 @@
 <li>TI: <strong>串行口发送中断请求标志位</strong> ,当CPU将1字节的数据写入串行口的发送SBUF(串行数据缓冲器)时,就启动1帧串行数据的发送,每发送完1帧串行数据后,硬件自动把TI置1,CPU在响应串行口发送中断时,并不对TI清0,必须在中断服务程序中用指令对TI清0  </li>
 <li>RI: <strong>串行口接收中断请求标志位</strong> ,在串行口接受完一帧的数据后,硬件自动使RI置1,CPU在相应串行口接收中断时,并不能对RI清0,必须在中断服务程序中使用指令对RI清0</li>
 </ul>
+<h3 id="中断允许控制与中断优先级控制"><a href="#中断允许控制与中断优先级控制" class="headerlink" title="中断允许控制与中断优先级控制"></a>中断允许控制与中断优先级控制</h3><h4 id="中断允许寄存器IE"><a href="#中断允许寄存器IE" class="headerlink" title="中断允许寄存器IE"></a>中断允许寄存器IE</h4><p><strong>IE对各中断源提出中断申请进行允许或禁止</strong>  ,IE寄存器字节地址为A8H,可位寻址  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">D7</th>
+<th style="text-align:center">D6</th>
+<th style="text-align:center">D5</th>
+<th style="text-align:center">D4</th>
+<th style="text-align:center">D3</th>
+<th style="text-align:center">D2</th>
+<th style="text-align:center">D1</th>
+<th style="text-align:center">D0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">IE A8H</td>
+<td style="text-align:center">EA</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">ES</td>
+<td style="text-align:center">ET1</td>
+<td style="text-align:center">EX1</td>
+<td style="text-align:center">ET0</td>
+<td style="text-align:center">EX0</td>
+</tr>
+<tr>
+<td style="text-align:center">位地址</td>
+<td style="text-align:center">AFH</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">ACH</td>
+<td style="text-align:center">ABH</td>
+<td style="text-align:center">AAH</td>
+<td style="text-align:center">A9H</td>
+<td style="text-align:center">A8H</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>EA为总中断开关控制位,当EA=0时,所有中断请求被屏蔽,EA=1时,CPU开放中断请求,但中断请求是否允许需要IE低5位控制  </p>
+<ul>
+<li>EA: <strong>中断允许总开关控制位</strong> ,1:所有中断请求均被允许,0:所有中断请求军被屏蔽  </li>
+<li>ES: <strong>串行口中断允许控制位</strong> ,1:允许串行口中断,0:禁止串行口中断  </li>
+<li>ET1: <strong>定时/计数器T1溢出中断允许控制位</strong> , 1:允许T1溢出中断,0:禁止T1溢出中断  </li>
+<li>EX1: <strong>外部中断1中断允许控制位</strong> , 1:允许外部中断1中断,0:禁止外部中断1中断  </li>
+<li>ET0: <strong>定时/计数器T0溢出中断允许控制位</strong> , 1:允许T0溢出中断,0:禁止T0溢出中断  </li>
+<li>EX0: <strong>外部中断0中断允许控制位</strong> , 1:允许外部中断0中断,0:禁止外部中断0中断  </li>
+</ul>
+<p>单片机复位后,IE寄存器会被清0,所有中断请求都被禁止  </p>
+<h4 id="中断优先级寄存器IP"><a href="#中断优先级寄存器IP" class="headerlink" title="中断优先级寄存器IP"></a>中断优先级寄存器IP</h4><p>中断源的优先级关系可归纳为两条基本规则:  </p>
+<ol>
+<li>低优先级可被高优先级中断,高优先级不能被低优先级中断  </li>
+<li>任何一种中断源(不管是高优先级还是低优先级)一旦得到响应,不会再被它同级中断源所中断<br><img src="/2021/04/20/%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F/2.png" alt="2.png">  </li>
+</ol>
+<p>中断优先级寄存器IP字节地址为B8H,可位寻址,只要改变其内容,就可以对中断源的优先级进行设置  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">D7</th>
+<th style="text-align:center">D6</th>
+<th style="text-align:center">D5</th>
+<th style="text-align:center">D4</th>
+<th style="text-align:center">D3</th>
+<th style="text-align:center">D2</th>
+<th style="text-align:center">D1</th>
+<th style="text-align:center">D0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">IP B8H</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">PS</td>
+<td style="text-align:center">PT1</td>
+<td style="text-align:center">PX1</td>
+<td style="text-align:center">PT0</td>
+<td style="text-align:center">PX0</td>
+</tr>
+<tr>
+<td style="text-align:center">位地址</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">BCH</td>
+<td style="text-align:center">BBH</td>
+<td style="text-align:center">BAH</td>
+<td style="text-align:center">B9H</td>
+<td style="text-align:center">B8H</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>PS: <strong>串行口中断优先级控制位</strong>, 1:高优先级,0:低优先级  </li>
+<li>PT1: <strong>定时/计数器中断优先级控制位</strong></li>
+<li>PX1: <strong>外部中断1中断优先级控制位</strong></li>
+<li>PT0: <strong>定时/计数器中断优先级控制位</strong></li>
+<li>PX0: <strong>外部中断0中断优先级控制位</strong>  </li>
+</ul>
+<h4 id="响应中断请求的条件"><a href="#响应中断请求的条件" class="headerlink" title="响应中断请求的条件"></a>响应中断请求的条件</h4><ol>
+<li>总中断允许开关接通,即EA = 1  </li>
+<li>该中断发出了中断请求,即该中断对应的请求标志位位1</li>
+<li>该中断被允许,即该中断的允许控制位为1</li>
+<li>无相同优先级或更高优先级的中断正在被服务  </li>
+</ol>
+<p>中断响应的过程是硬件自动生成一条长调用命令”LCALL addr16”,addr16是中断源的中断入口地址  </p>
+<p>中断入口地址表:<br>|中断源|中断入口地址|<br>|:—:|:—:|<br>|外部中断0|0003H|<br>|定时/计数器T0|00BH|<br>|外部中断1|0013H|<br>|定时/计数器T1|001BH|<br>|串行口|0023H|  </p>
+<p>对于外部中断1的响应,硬件自动生成的长调用命令为  </p>
+<blockquote>
+<p>LCALL 0013H  </p>
+</blockquote>
+<p>生成LCALL指令后,由CPU执行指令,首先将PC中的内容压入堆栈中保存断定啊,再将中断入口地址装入PC中,使程序转向响应中断请求的中断入口地址  </p>
 
       
     </div>
